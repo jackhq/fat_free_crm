@@ -1,0 +1,17 @@
+{ 
+  'servers': [ 'captainsource.jackfile.com'],
+  'ssh-auth': 'key',
+  'user': 'ubuntu', 
+  'group': 'ubuntu',
+  'key': "~/.ec2/ec2-dev",
+  'database': {
+    'name': 'captainsource_production',
+    'host': 'jrsdev.c7mi13rr4fiq.us-east-1.rds.amazonaws.com',
+    'user': 'jackhq',
+    'password': 'jackdogbyte'
+  },
+  'cookbooks': 'http://jackhq.s3.amazonaws.com/gcc/chef-solo.tar.gz',
+  'run_list': ['recipe[fat_free_crm]'],
+  'app': 'fat_free_crm'
+}
+

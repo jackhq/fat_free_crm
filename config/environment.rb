@@ -58,12 +58,15 @@ Rails::Initializer.run do |config|
   # config.action_mailer.sendmail_settings = { :location  => "/usr/sbin/sendmail", :arguments => "-i -t" }
 end
 
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.logger = nil
+ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.smtp_settings = {
-    :tls => true,
-    :address => "smtp.gmail.com",
-    :port => "587",
-    :domain => "jackrussellsoftware.com",
-    :authentication => :plain,
-    :user_name => "do-not-reply@jackrussellsoftware.com",
-    :password => "jackruss" 
-  }
+ :address  => "smtp.gmail.com",
+ :port  => 587,
+ :domain  => 'jackrussellsoftware.com',
+ :authentication => :plain,
+ :user_name  => 'do-not-reply@jackrussellsoftware.com',
+ :password  => 'jackruss'
+}

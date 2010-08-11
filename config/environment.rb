@@ -54,6 +54,16 @@ Rails::Initializer.run do |config|
 
   # ActionMailer configuration.
   config.action_mailer.default_content_type = "text/plain"
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.sendmail_settings = { :location  => "/usr/sbin/sendmail", :arguments => "-i -t" }
+  # config.action_mailer.delivery_method = :sendmail
+  # config.action_mailer.sendmail_settings = { :location  => "/usr/sbin/sendmail", :arguments => "-i -t" }
 end
+
+ActionMailer::Base.smtp_settings = {
+    :tls => true,
+    :address => "smtp.gmail.com",
+    :port => "587",
+    :domain => "jackrussellsoftware.com",
+    :authentication => :plain,
+    :user_name => "do-not-reply@jackrussellsoftware.com",
+    :password => "jackruss" 
+  }
